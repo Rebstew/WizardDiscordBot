@@ -1,0 +1,12 @@
+{
+    "parentRoles": [
+        {
+            "parentRoleId": "<id 1>",
+            "childrenRoles": ["<children id 1>", "<children id 2>", "<children id ...>", "<children id n>"]
+        },
+        {
+            "parentRoleId": "<id 2>",
+            "childrenRoles": ["<children id 1>", "<children id 2>", "<children id ...>", "<children id n>"]
+        }
+    ]
+}
