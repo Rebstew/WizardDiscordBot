@@ -1,0 +1,22 @@
+{
+  "name": "wizarddiscordbot",
+  "version": "1.0.0",
+  "description": "A Discord bot for Historycraft",
+  "main": "src/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Webster56/wizarddiscordbot.git"
+  },
+  "author": "Rebstew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Webster56/wizarddiscordbot/issues"
+  },
+  "homepage": "https://gitlab.com/Webster56/wizarddiscordbot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
