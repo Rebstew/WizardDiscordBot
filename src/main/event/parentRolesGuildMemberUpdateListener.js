@@ -20,7 +20,7 @@ class ParentRolesGuildMemberUpdateListener {
         let rolesToAdd = [];
         let rolesToRemove = [];
 
-        for(let parentRole : this.parentRoles){
+        for(let parentRole in this.parentRoles){
             let parentRoleId = parentRole.parentRoleId;
             let childrenRoles = parentRole.childrenRoles;
 

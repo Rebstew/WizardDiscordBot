@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const ParentRolesGuildMemberUpdateListener = require('event/parentRolesGuildMemberUpdateListener.js')
+const ParentRolesGuildMemberUpdateListener = require('./event/parentRolesGuildMemberUpdateListener.js')
 
 let config;
 let parentRolesGuildMemberUpdateListenerObj;
