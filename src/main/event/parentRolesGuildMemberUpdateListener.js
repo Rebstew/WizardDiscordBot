@@ -1,6 +1,3 @@
-
-
-
 class ParentRolesGuildMemberUpdateListener {
 
     constructor(config){
@@ -9,8 +6,21 @@ class ParentRolesGuildMemberUpdateListener {
     }
 
     async execute(oldMember, newMember) {
-        let oldRoles = oldMember.roles.cache.values;
-        let newRoles = newMember.roles.cache.values;
+
+
+        let oldRolesValues = oldMember.roles.cache.values();
+        let newRolesValues = newMember.roles.cache.values();
+
+        let oldRoles = [];
+        let newRoles = [];
+
+        for(const oldRole of oldRolesValues){
+            oldRoles.push(oldRole.id);
+        }
+
+        for(const newRole of newRolesValues){
+            newRoles.push(newRole.id);
+        }
 
         //roles haven't changed, don't go further
         if(JSON.stringify(oldRoles) == JSON.stringify(newRoles)) return;
@@ -18,9 +28,9 @@ class ParentRolesGuildMemberUpdateListener {
         let rolesToAdd = [];
         let rolesToRemove = [];
 
-        for(let parentRole in this.parentRoles){
-            let parentRoleId = parentRole.parentRoleId;
-            let childrenRoles = parentRole.childrenRoles;
+        for(let parentRoleIdx in this.parentRoles){
+            let parentRoleId = this.parentRoles[parentRoleIdx].parentRoleId;
+            let childrenRoles = this.parentRoles[parentRoleIdx].childrenRoles;
 
             let hasAnyChildrenRoles = newRoles.some(role => childrenRoles.includes(role));
             if(newRoles.includes(parentRoleId) && !hasAnyChildrenRoles){
@@ -31,11 +41,11 @@ class ParentRolesGuildMemberUpdateListener {
         }
 
         if(rolesToAdd.length > 0){
-            newRoles.roles.add(rolesToAdd);
+            newMember.roles.add(rolesToAdd);
         }
 
         if(rolesToRemove.length > 0){
-            newRoles.roles.remove(rolesToRemove);
+            newMember.roles.remove(rolesToRemove);
         }
     }
 }
