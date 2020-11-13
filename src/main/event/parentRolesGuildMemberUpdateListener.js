@@ -3,8 +3,6 @@
 
 class ParentRolesGuildMemberUpdateListener {
 
-    parentRoles = [];
-
     constructor(config){
         this.config = config;
         this.parentRoles = config.parentRoles;
